@@ -26,7 +26,7 @@ const swaggerOptions = {
     },
     servers: [
       { url: 'http://localhost:3000', description: 'Development server' },
-      { url: 'https://products-api-w3.onrender.com', description: 'Production server' }
+      { url: 'https://my-cse341.onrender.com', description: 'Production server' }
     ],
   },
   apis: ['./routes/*.js'],
