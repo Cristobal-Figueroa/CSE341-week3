@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Category = require('../models/Category');
+const { isAuthenticated } = require('../middleware/auth');
 
 /**
  * @swagger
@@ -119,7 +120,7 @@ router.get('/:id', async (req, res) => {
  *       500:
  *         description: Internal server error
  */
-router.post('/', async (req, res) => {
+router.post('/', isAuthenticated, async (req, res) => {
   try {
     const category = new Category({
       name: req.body.name,
@@ -185,7 +186,7 @@ router.post('/', async (req, res) => {
  *       500:
  *         description: Internal server error
  */
-router.put('/:id', async (req, res) => {
+router.put('/:id', isAuthenticated, async (req, res) => {
   try {
     const category = await Category.findById(req.params.id);
     if (!category) {
@@ -225,7 +226,7 @@ router.put('/:id', async (req, res) => {
  *       500:
  *         description: Internal server error
  */
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', isAuthenticated, async (req, res) => {
   try {
     const category = await Category.findById(req.params.id);
     if (!category) {

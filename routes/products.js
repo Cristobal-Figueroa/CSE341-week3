@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Product = require('../models/Product');
+const { isAuthenticated } = require('../middleware/auth');
 
 /**
  * @swagger
@@ -163,7 +164,7 @@ router.get('/:id', async (req, res) => {
  *       500:
  *         description: Internal server error
  */
-router.post('/', async (req, res) => {
+router.post('/', isAuthenticated, async (req, res) => {
   try {
     const product = new Product({
       name: req.body.name,
@@ -261,7 +262,7 @@ router.post('/', async (req, res) => {
  *       500:
  *         description: Internal server error
  */
-router.put('/:id', async (req, res) => {
+router.put('/:id', isAuthenticated, async (req, res) => {
   try {
     const product = await Product.findById(req.params.id);
     if (!product) {
@@ -307,7 +308,7 @@ router.put('/:id', async (req, res) => {
  *       500:
  *         description: Internal server error
  */
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', isAuthenticated, async (req, res) => {
   try {
     const product = await Product.findById(req.params.id);
     if (!product) {
