@@ -1,6 +1,7 @@
+require('dotenv').config();
+
 const express = require('express');
 const mongoose = require('mongoose');
-const dotenv = require('dotenv');
 const swaggerUi = require('swagger-ui-express');
 const swaggerJsdoc = require('swagger-jsdoc');
 const passport = require('passport');
@@ -12,8 +13,6 @@ const ordersRouter = require('./routes/orders');
 const reviewsRouter = require('./routes/reviews');
 const authRouter = require('./routes/auth');
 require('./config/passport')(passport);
-
-dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
