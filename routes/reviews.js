@@ -111,7 +111,7 @@ router.get('/:id', async (req, res) => {
  *               - comment
  *             example:
  *               userId: 6a7e24e620cf0c6099927ea6
- *               productId: 6a7e306f2454f0cfa58f988f
+ *               productId: 6a7e306f2454f0cfa58f9890
  *               rating: 5
  *               comment: Excellent product, highly recommended!
  *             properties:
@@ -120,7 +120,7 @@ router.get('/:id', async (req, res) => {
  *                 example: 6a7e24e620cf0c6099927ea6
  *               productId:
  *                 type: string
- *                 example: 6a7e306f2454f0cfa58f988f
+ *                 example: 6a7e306f2454f0cfa58f9890
  *               rating:
  *                 type: number
  *                 minimum: 1
