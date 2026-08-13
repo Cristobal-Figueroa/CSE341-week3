@@ -65,7 +65,7 @@ router.get('/', async (req, res) => {
  *                 _id:
  *                   type: string
  *                 userId:
- *                     type: string
+ *                   type: string
  *                   productId:
  *                     type: string
  *                   rating:
@@ -202,7 +202,7 @@ router.post('/', isAuthenticated, async (req, res) => {
  *                 _id:
  *                   type: string
  *                 userId:
- *                     type: string
+ *                   type: string
  *                   productId:
  *                     type: string
  *                   rating:
