@@ -57,6 +57,7 @@ router.get('/', async (req, res) => {
  *         required: true
  *         schema:
  *           type: string
+ *           example: 6a7e3071a1112ea737c43906
  *         description: Order ID
  *     responses:
  *       200:
@@ -117,9 +118,20 @@ router.get('/:id', async (req, res) => {
  *               - totalAmount
  *               - shippingAddress
  *               - paymentMethod
+ *             example:
+ *               userId: 6a7e24e620cf0c6099927ea6
+ *               items:
+ *                 - productId: 6a7e306f2454f0cfa58f988f
+ *                   quantity: 2
+ *                   price: 99.99
+ *               totalAmount: 199.98
+ *               status: pending
+ *               shippingAddress: 123 Main St, Santiago, Chile
+ *               paymentMethod: credit_card
  *             properties:
  *               userId:
  *                 type: string
+ *                 example: 6a7e24e620cf0c6099927ea6
  *               items:
  *                 type: array
  *                 items:
@@ -127,20 +139,27 @@ router.get('/:id', async (req, res) => {
  *                   properties:
  *                     productId:
  *                       type: string
+ *                       example: 6a7e306f2454f0cfa58f988f
  *                     quantity:
  *                       type: number
+ *                       example: 2
  *                     price:
  *                       type: number
+ *                       example: 99.99
  *               totalAmount:
  *                 type: number
+ *                 example: 199.98
  *               status:
  *                 type: string
  *                 enum: [pending, processing, shipped, delivered, cancelled]
+ *                 example: pending
  *               shippingAddress:
  *                 type: string
+ *                 example: 123 Main St, Santiago, Chile
  *               paymentMethod:
  *                 type: string
  *                 enum: [credit_card, debit_card, paypal, cash]
+ *                 example: credit_card
  *     responses:
  *       201:
  *         description: Order created successfully
@@ -193,6 +212,7 @@ router.post('/', isAuthenticated, async (req, res) => {
  *         required: true
  *         schema:
  *           type: string
+ *           example: 6a7e3071a1112ea737c43906
  *         description: Order ID
  *     requestBody:
  *       required: true
@@ -200,21 +220,30 @@ router.post('/', isAuthenticated, async (req, res) => {
  *         application/json:
  *           schema:
  *             type: object
+ *             example:
+ *               status: processing
+ *               shippingAddress: 456 New St, Santiago, Chile
+ *               paymentMethod: paypal
  *             properties:
  *               userId:
  *                 type: string
+ *                 example: 6a7e24e620cf0c6099927ea6
  *               items:
  *                 type: array
  *               totalAmount:
  *                 type: number
+ *                 example: 199.98
  *               status:
  *                 type: string
  *                 enum: [pending, processing, shipped, delivered, cancelled]
+ *                 example: processing
  *               shippingAddress:
  *                 type: string
+ *                 example: 456 New St, Santiago, Chile
  *               paymentMethod:
  *                 type: string
  *                 enum: [credit_card, debit_card, paypal, cash]
+ *                 example: paypal
  *     responses:
  *       200:
  *         description: Order updated successfully
@@ -283,6 +312,7 @@ router.put('/:id', isAuthenticated, async (req, res) => {
  *         required: true
  *         schema:
  *           type: string
+ *           example: 6a7e3071a1112ea737c43906
  *         description: Order ID
  *     responses:
  *       204:

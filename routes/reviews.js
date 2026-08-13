@@ -53,6 +53,7 @@ router.get('/', async (req, res) => {
  *         required: true
  *         schema:
  *           type: string
+ *           example: 6a7e3071a1112ea737c43908
  *         description: Review ID
  *     responses:
  *       200:
@@ -108,19 +109,28 @@ router.get('/:id', async (req, res) => {
  *               - productId
  *               - rating
  *               - comment
+ *             example:
+ *               userId: 6a7e24e620cf0c6099927ea6
+ *               productId: 6a7e306f2454f0cfa58f988f
+ *               rating: 5
+ *               comment: Excellent product, highly recommended!
  *             properties:
  *               userId:
  *                 type: string
+ *                 example: 6a7e24e620cf0c6099927ea6
  *               productId:
  *                 type: string
+ *                 example: 6a7e306f2454f0cfa58f988f
  *               rating:
  *                 type: number
  *                 minimum: 1
  *                 maximum: 5
+ *                 example: 5
  *               comment:
  *                 type: string
  *                 minLength: 5
  *                 maxLength: 500
+ *                 example: Excellent product, highly recommended!
  *     responses:
  *       201:
  *         description: Review created successfully
@@ -171,6 +181,7 @@ router.post('/', isAuthenticated, async (req, res) => {
  *         required: true
  *         schema:
  *           type: string
+ *           example: 6a7e3071a1112ea737c43908
  *         description: Review ID
  *     requestBody:
  *       required: true
@@ -178,19 +189,26 @@ router.post('/', isAuthenticated, async (req, res) => {
  *         application/json:
  *           schema:
  *             type: object
+ *             example:
+ *               rating: 4
+ *               comment: Updated review, very good product
  *             properties:
  *               userId:
  *                 type: string
+ *                 example: 6a7e24e620cf0c6099927ea6
  *               productId:
  *                 type: string
+ *                 example: 6a7e306f2454f0cfa58f988f
  *               rating:
  *                 type: number
  *                 minimum: 1
  *                 maximum: 5
+ *                 example: 4
  *               comment:
  *                 type: string
  *                 minLength: 5
  *                 maxLength: 500
+ *                 example: Updated review, very good product
  *     responses:
  *       200:
  *         description: Review updated successfully
@@ -253,6 +271,7 @@ router.put('/:id', isAuthenticated, async (req, res) => {
  *         required: true
  *         schema:
  *           type: string
+ *           example: 6a7e3071a1112ea737c43908
  *         description: Review ID
  *     responses:
  *       204:

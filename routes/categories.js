@@ -49,6 +49,7 @@ router.get('/', async (req, res) => {
  *         required: true
  *         schema:
  *           type: string
+ *           example: 6a7e306f2454f0cfa58f988c
  *         description: Category ID
  *     responses:
  *       200:
@@ -96,15 +97,20 @@ router.get('/:id', async (req, res) => {
  *             required:
  *               - name
  *               - description
+ *             example:
+ *               name: Sports
+ *               description: Sports equipment and accessories
  *             properties:
  *               name:
  *                 type: string
  *                 minLength: 2
  *                 maxLength: 50
+ *                 example: Sports
  *               description:
  *                 type: string
  *                 minLength: 5
  *                 maxLength: 200
+ *                 example: Sports equipment and accessories
  *     responses:
  *       201:
  *         description: Category created successfully
@@ -149,6 +155,7 @@ router.post('/', isAuthenticated, async (req, res) => {
  *         required: true
  *         schema:
  *           type: string
+ *           example: 6a7e306f2454f0cfa58f988c
  *         description: Category ID
  *     requestBody:
  *       required: true
@@ -156,15 +163,20 @@ router.post('/', isAuthenticated, async (req, res) => {
  *         application/json:
  *           schema:
  *             type: object
+ *             example:
+ *               name: Electronics
+ *               description: Updated electronic devices and accessories
  *             properties:
  *               name:
  *                 type: string
  *                 minLength: 2
  *                 maxLength: 50
+ *                 example: Electronics
  *               description:
  *                 type: string
  *                 minLength: 5
  *                 maxLength: 200
+ *                 example: Updated electronic devices and accessories
  *     responses:
  *       200:
  *         description: Category updated successfully
@@ -217,6 +229,7 @@ router.put('/:id', isAuthenticated, async (req, res) => {
  *         required: true
  *         schema:
  *           type: string
+ *           example: 6a7e306f2454f0cfa58f988c
  *         description: Category ID
  *     responses:
  *       204:

@@ -61,6 +61,7 @@ router.get('/', async (req, res) => {
  *         required: true
  *         schema:
  *           type: string
+ *           example: 6a7e306f2454f0cfa58f988f
  *         description: Product ID
  *     responses:
  *       200:
@@ -126,29 +127,46 @@ router.get('/:id', async (req, res) => {
  *               - sku
  *               - imageUrl
  *               - brand
+ *             example:
+ *               name: Gaming Laptop
+ *               description: High-performance gaming laptop with RTX 4060
+ *               price: 1299.99
+ *               category: 6a7e306f2454f0cfa58f988c
+ *               stock: 15
+ *               sku: ELEC-004
+ *               imageUrl: https://example.com/laptop.jpg
+ *               brand: GamePro
  *             properties:
  *               name:
  *                 type: string
  *                 minLength: 2
  *                 maxLength: 100
+ *                 example: Gaming Laptop
  *               description:
  *                 type: string
  *                 minLength: 10
  *                 maxLength: 500
+ *                 example: High-performance gaming laptop with RTX 4060
  *               price:
  *                 type: number
  *                 minimum: 0
+ *                 example: 1299.99
  *               category:
  *                 type: string
+ *                 example: 6a7e306f2454f0cfa58f988c
  *               stock:
  *                 type: number
  *                 minimum: 0
+ *                 example: 15
  *               sku:
  *                 type: string
+ *                 example: ELEC-004
  *               imageUrl:
  *                 type: string
+ *                 example: https://example.com/laptop.jpg
  *               brand:
  *                 type: string
+ *                 example: GamePro
  *     responses:
  *       201:
  *         description: Product created successfully
@@ -199,6 +217,7 @@ router.post('/', isAuthenticated, async (req, res) => {
  *         required: true
  *         schema:
  *           type: string
+ *           example: 6a7e306f2454f0cfa58f988f
  *         description: Product ID
  *     requestBody:
  *       required: true
@@ -206,29 +225,46 @@ router.post('/', isAuthenticated, async (req, res) => {
  *         application/json:
  *           schema:
  *             type: object
+ *             example:
+ *               name: Wireless Headphones Pro
+ *               description: Updated premium wireless headphones
+ *               price: 129.99
+ *               category: 6a7e306f2454f0cfa58f988c
+ *               stock: 45
+ *               sku: ELEC-001
+ *               imageUrl: https://example.com/headphones.jpg
+ *               brand: TechSound
  *             properties:
  *               name:
  *                 type: string
  *                 minLength: 2
  *                 maxLength: 100
+ *                 example: Wireless Headphones Pro
  *               description:
  *                 type: string
  *                 minLength: 10
  *                 maxLength: 500
+ *                 example: Updated premium wireless headphones
  *               price:
  *                 type: number
  *                 minimum: 0
+ *                 example: 129.99
  *               category:
  *                 type: string
+ *                 example: 6a7e306f2454f0cfa58f988c
  *               stock:
  *                 type: number
  *                 minimum: 0
+ *                 example: 45
  *               sku:
  *                 type: string
+ *                 example: ELEC-001
  *               imageUrl:
  *                 type: string
+ *                 example: https://example.com/headphones.jpg
  *               brand:
  *                 type: string
+ *                 example: TechSound
  *     responses:
  *       200:
  *         description: Product updated successfully
@@ -299,6 +335,7 @@ router.put('/:id', isAuthenticated, async (req, res) => {
  *         required: true
  *         schema:
  *           type: string
+ *           example: 6a7e306f2454f0cfa58f988f
  *         description: Product ID
  *     responses:
  *       204:
