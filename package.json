@@ -6,6 +6,7 @@
     "start": "node server.js",
     "seed": "node seed.js",
     "seed:week6": "node seed-week6.js",
+    "seed:all": "node seed.js && node seed-week6.js",
     "test": "jest --testEnvironment=node"
   },
   "keywords": [],
