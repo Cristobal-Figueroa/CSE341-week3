@@ -5,6 +5,7 @@
   "scripts": {
     "start": "node server.js",
     "seed": "node seed.js",
+    "seed:week6": "node seed-week6.js",
     "test": "jest --testEnvironment=node"
   },
   "keywords": [],
