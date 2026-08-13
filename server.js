@@ -8,6 +8,8 @@ const session = require('express-session');
 
 const productsRouter = require('./routes/products');
 const categoriesRouter = require('./routes/categories');
+const ordersRouter = require('./routes/orders');
+const reviewsRouter = require('./routes/reviews');
 const authRouter = require('./routes/auth');
 require('./config/passport')(passport);
 
@@ -31,9 +33,9 @@ const swaggerOptions = {
   definition: {
     openapi: '3.0.0',
     info: {
-      title: 'Products API',
+      title: 'E-Commerce API',
       version: '1.0.0',
-      description: 'A simple Express API for managing products and categories with OAuth authentication',
+      description: 'A complete Express API for managing products, categories, orders, and reviews with OAuth authentication',
     },
     servers: [
       { url: 'http://localhost:3000', description: 'Development server' },
@@ -63,6 +65,8 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 app.use('/auth', authRouter);
 app.use('/products', productsRouter);
 app.use('/categories', categoriesRouter);
+app.use('/orders', ordersRouter);
+app.use('/reviews', reviewsRouter);
 
 // MongoDB connection
 mongoose.connect(process.env.MONGODB_URI)
