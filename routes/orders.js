@@ -69,7 +69,7 @@ router.get('/', async (req, res) => {
  *                 _id:
  *                   type: string
  *                 userId:
- *                     type: string
+ *                   type: string
  *                   items:
  *                     type: array
  *                   totalAmount:
@@ -226,7 +226,7 @@ router.post('/', isAuthenticated, async (req, res) => {
  *                 _id:
  *                   type: string
  *                 userId:
- *                     type: string
+ *                   type: string
  *                   items:
  *                     type: array
  *                   totalAmount:
